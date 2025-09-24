@@ -1,0 +1,537 @@
+@import url("/home/torpin/.cache/wal/colors-waybar.css");
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    /* look at nerdfonts for icons */
+    font-family: Helvetica, FontAwesome, Roboto, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 32px;
+    min-height: 12px;
+}
+
+window#waybar {
+    /* background-color: rgba(43, 48, 59, 0.5); */
+    background-color: transparent;
+    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+    /* min-height: 60px; */ /* don't think this one does anything, need put to all? */
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    /* background: radial-gradient(circle at 50% 30%, #ffdd55, #ff8800 70%); */
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #FFFF00;
+    background-color: #000000;
+}
+
+
+
+#workspaces button {
+    /* width */
+    padding: 0px 2px; /* controls width of candle */
+    min-width: 12px; /* also does that ^ I think? */
+    margin-left: 2px;
+    
+    /* height */
+    padding-top: 4px;
+    margin-top: 08px; /* controls height of flame */
+
+    /* outer flame */
+    box-shadow: inset 0px 3px 3px 4px @color1;
+    /*box-shadow: inset 0px 3px 3px 4px @color8;*/
+    /* inner flame */
+    background-color: @color7; 
+
+    /* text color */
+    color: @color0;
+
+    /* Candle itself */
+    border-right-width: 2px;
+    border-left-width: 2px;
+    border-top-width: 0px;
+    border-bottom-width: 10px;
+    border-style: solid;
+    border-radius: 50% 50% 40% 40%;
+    border-color: #EEEEEE transparent;
+
+    /*
+    background-origin: padding-box;
+    background-image: url("laptopWick.png");
+    background-position: center bottom;
+    */
+}
+
+#workspaces button:hover {
+	/*
+    background-image: url("laptopFlameSmall.png"), url("laptopWick.png");
+    color: #000000;
+    */
+
+    box-shadow: inset 0px 3px 3px 4px @color1;
+    padding-top: 3px;
+    margin-top: 4px; /* controls height of flame */
+    background-color: @color15;
+    border-color: #F7F7F7 transparent;
+}
+
+#workspaces button.active {
+     /* width */
+    padding: 0px 2px; /* controls width of candle */
+    min-width: 12px; /* also does that ^ I think? */
+
+    padding-top: 0px;
+    margin-top: 0px;
+    /* outer flame */
+    box-shadow: inset 0px 3px 3px 4px @color9;
+    /* inner flame */
+    background-color: @color15; 
+
+    /* text color */
+    color: @color8;
+
+    /* Candle itself */
+    border-right-width: 2px;
+    border-left-width: 2px;
+    border-top-width: 0px;
+    border-bottom-width: 10px;
+    border-style: solid;
+    border-color: #FFFFFF transparent;
+
+    /* shaping */
+    border-radius: 50% 50% 37% 37%;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+.modules-center,
+.modules-left {
+    /*background-color: #0000FF;*/
+    margin: 0px 0px;
+
+    padding: 0px 0px;
+
+    margin-top: 4px;
+    /* outer flame */
+    box-shadow: inset 0px 0px 3px 5px @color1;
+    /* inner flame */
+    background-color: @color8;
+
+    /* text color */
+    color: @color8;
+
+
+    /* shaping */
+    border-radius: 25px;
+}
+
+.modules-center {
+    margin-left: 218px;
+    padding: 0px 5px;
+}
+
+.modules-right {
+    padding: 0px 4px 0px 0px;
+    background-color: @color8;
+    border-radius: 16px 16px 16px 16px;
+}
+#mode {
+    background-color: #FF0000;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#custom-power,
+#mpd {
+    padding: 0 12px; 
+    /*
+    color: #ffffff;
+    background-color: @color2; */
+    color: @color9;
+    
+    box-shadow: inset 0px 0px 2px 2px @color1;
+}
+
+#clock {
+    /*border-radius: 25px;*/
+    box-shadow: 0 0 0 0 transparent;
+}
+
+#temperature {
+ border-radius: 0px 25px 25px 0px;
+ /*background-color: @color1;*/
+}
+
+#custom-power {
+    padding-left: 16px;
+    font-size: 20px;
+    /*box-shadow: inset -4px 0px 2px -2px @color1; */
+    border-radius: 25px 0px 0px 25px;
+}
+
+/* you can set a style on hover for any module like this */
+#custom-power:hover,
+#battery:hover,
+#power-profiles-daemon:hover,
+#pulseaudio:hover {
+	/*
+    background-color: #a37800;
+    */
+    /* background-color: @color2; */
+    color: @color7;
+
+    box-shadow: inset 0px 0px 3px 4px @color9;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+.modules-left > widget:first-child {
+    
+    border-radius: 25px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+    
+
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+
+
+}
+
+#clock {
+}
+
+#battery {
+    /*
+    background-color: #ffffff;
+    color: #000000;
+    */
+    padding-right: 16px;
+    
+}
+
+#battery.charging, #battery.plugged {
+    /*
+    color: #ffffff;
+    background-color: #26A65B;
+    */
+}
+
+@keyframes blink {
+    to {
+	/*
+        background-color: #ffffff;
+	*/
+        color: @color8;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    /*
+    background-color: #f53c3c;
+    */
+    color: @color9;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+    /*padding-right: 15px;*/
+    padding-left: 8px;
+    padding-right: 12px;
+}
+
+#power-profiles-daemon.performance { /*
+    background-color: #f53c3c;
+    color: #ffffff;
+*/}
+
+#power-profiles-daemon.balanced {
+	/*
+    background-color: #2980b9;
+    color: #ffffff; */
+}
+
+#power-profiles-daemon.power-saver {
+	/*
+    background-color: #2ecc71;
+    color: #000000;
+    */
+}
+
+label:focus {
+    background-color: #FF0000;
+}
+
+#cpu {
+	/*
+    background-color: #2ecc71;
+    color: #000000;
+    */
+}
+
+#memory {
+	/*
+    background-color: #9b59b6;
+    */
+}
+
+#disk {
+	/*
+    background-color: #964B00;
+    */
+}
+
+#backlight {
+	/*
+    background-color: #90b1b1;
+    */
+}
+
+#network {
+	/*
+    background-color: #2980b9;
+    */
+}
+
+#network.disconnected {
+	/*
+    background-color: #f53c3c;
+    */
+}
+
+#pulseaudio {
+	/*
+    background-color: #f1c40f;
+    color: #000000;
+    */
+}
+
+#pulseaudio.muted {
+	/*
+    background-color: #90b1b1;
+    color: #2a5c45;
+    */
+}
+
+#wireplumber {
+	/*
+    background-color: #fff0f5;
+    color: #000000;
+    */
+}
+
+#wireplumber.muted {
+	/*
+    background-color: #f53c3c;
+    */
+}
+
+#custom-media {
+	/*
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+    */
+}
+
+#custom-media.custom-spotify {
+	/*
+    background-color: #66cc99;
+    */
+}
+
+#custom-media.custom-vlc {
+	/*
+    background-color: #ffa000;
+    */
+}
+
+#temperature {
+	/*
+    background-color: #f0932b;
+    */
+}
+
+#temperature.critical {
+	/*
+    background-color: #eb4d4b;
+    */
+}
+
+tooltip {
+    color: @color1;
+    background-color: @color8;
+    border-radius: 10px;
+    /*
+    border-color: @color9;
+    border-size: 3px;
+    */
+    box-shadow: 0 0 0 2px @color1;
+}
+
+
+#tray {
+    background-color: @color1;
+    padding: 7px;
+	/*
+    background-color: #2980b9;
+    */
+}
+
+#tray > .tray-icon {
+    color: #FF00FF;
+    background-color: #00FFFF;
+}
+
+#tray > .passive {
+	/*
+    -gtk-icon-effect: dim;
+    */
+}
+
+#tray > .needs-attention {
+	/*
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+    */
+}
+
+#idle_inhibitor {
+	/*
+    background-color: #2d3436;
+    */
+}
+
+#idle_inhibitor.activated {
+	/*
+    background-color: #ecf0f1;
+    color: #2d3436;
+    */
+}
+
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+#language {
+    background: #00b093;
+    color: #740864;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+    background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}
