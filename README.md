@@ -1,2 +1,2 @@
 # DotFiles
-My terrible terrible dotfiles :)
+My terrible, terrible dotfiles :)
