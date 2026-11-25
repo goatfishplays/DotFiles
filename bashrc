@@ -25,9 +25,6 @@ export PATH="usr/bin/gcc:$PATH"
 # for kubectl plugins I think
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# API keys live in ~/.bashrc.secrets (not tracked in DotFiles)
-[ -f "$HOME/.bashrc.secrets" ] && . "$HOME/.bashrc.secrets"
-
 . /usr/share/nvm/init-nvm.sh
 
 [ -f "/home/torpin/.ghcup/env" ] && . "/home/torpin/.ghcup/env" # ghcup-env
