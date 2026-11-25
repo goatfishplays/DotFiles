@@ -3,7 +3,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     /* look at nerdfonts for icons */
-    font-family: Helvetica, FontAwesome, Roboto, Arial, sans-serif;
+    font-family: Helvetica, "MesloLGL Nerd Font Propo", "Font Awesome 7 Free"; /*, FontAwesome, Roboto, Arial, sans-serif; */
     font-size: 13px;
     min-height: 32px;
     min-height: 12px;
@@ -191,8 +191,10 @@ button:hover {
     color: #ffffff;
     background-color: @color2; */
     color: @color9;
-    
-    box-shadow: inset 0px 0px 2px 2px @color1;
+    background-color: transparent;
+    box-shadow: inset 0px 0px 2px 2px @color1; /* outmost ring extra harsh due to transparent + overlaying another on it */
+	
+    /* background-color: @color8; */ /* if want less harsh ring thing */
 }
 
 #clock {

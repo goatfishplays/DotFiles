@@ -14,6 +14,12 @@
         //"sway/scratchpad",
         "custom/media",
     ],
+    // Clicks need LD_PRELOAD hypr_dispatch_fix.so (see hyprland.lua) because
+    // waybar 0.15 still sends legacy `dispatch workspace N` under Lua IPC.
+    "hyprland/workspaces": {
+        "sort-by": "number",
+        "show-special": false
+    },
     "modules-center": [
         //"hyprland/window"
         "clock",
@@ -177,11 +183,15 @@
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
+
+
+
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
+        // "format-muted": " a{format_source}",
         "format-muted": " {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
@@ -192,7 +202,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["", " ", "  "]
         },
         "on-click": "pavucontrol"
     },
@@ -220,6 +230,14 @@
 			"hibernate": "systemctl hibernate"
 		}
     },
+
+    // "custom/cava": {
+    //     "format": "{}",
+    //     "exec": "~/.config/waybar/cava.sh"
+    // },
+
+
+
       "custom/notification": {
     "tooltip": false,
     "format": "{icon}",
